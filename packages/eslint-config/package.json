@@ -1,11 +1,11 @@
 {
   "name": "@kwai-explore/eslint-config",
-  "version": "0.1.0-alpha.12",
+  "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com",
+    "url": "https://github.com/kwai-explore/basic-configs",
     "directory": "packages/eslint-config"
   },
   "files": [
