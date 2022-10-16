@@ -1,0 +1,7 @@
+dist
+node_modules
+public
+*.js
+*.mjs
+mocks
+/src/swagger/open-api-docs/**/*.ts

@@ -1,0 +1,10 @@
+dist
+node_modules
+public
+.lintstagedrc.json
+.vscode
+index.html
+pnpm-lock.yaml
+README.md
+windi.config.ts
+.pnpm-store
