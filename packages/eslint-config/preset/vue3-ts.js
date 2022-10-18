@@ -1,13 +1,11 @@
-module.exports = {
+// @ts-check
+const { defineConfig } = require('eslint-define-config');
+
+module.exports = defineConfig({
     overrides: [
         {
             files: ['**/*.ts', '**/*.vue'],
-            extends: [
-                '../javascript',
-                '../typescript',
-                '../typescript-requiring-type-checking',
-                '../vue3',
-            ],
+            extends: ['../javascript', '../typescript', '../typescript-requiring-type-checking', '../vue3'],
             env: {
                 browser: true,
                 es2022: true,
@@ -20,4 +18,4 @@ module.exports = {
             },
         },
     ],
-};
+});

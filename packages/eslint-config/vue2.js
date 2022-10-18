@@ -1,4 +1,6 @@
-module.exports = {
+// @ts-check
+const { defineConfig } = require('eslint-define-config');
+module.exports = defineConfig({
     // https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
 
     // Rules order is important, please avoid shuffling them
@@ -52,4 +54,4 @@ module.exports = {
         'vue/define-props-declaration': 'error',
         'vue/define-emits-declaration': 'error',
     },
-};
+});

@@ -1,3 +1,9 @@
+// @ts-check
+const { defineConfig } = require('eslint-define-config');
+
+/**
+ * @type {import('eslint-define-config').EslintConfig['rules']}
+ */
 const tsCheckRules = {
     'import/no-webpack-loader-syntax': 'off',
     'dot-notation': 'off',
@@ -29,25 +35,28 @@ const tsCheckRules = {
     'getter-return': 'off',
     'no-const-assign': 'off',
     'no-dupe-args': 'off',
-    'no-dupe-class-members': 'off',
     'no-dupe-keys': 'off',
     'no-func-assign': 'off',
     'no-new-symbol': 'off',
     'no-obj-calls': 'off',
-    'no-redeclare': 'off',
     'no-this-before-super': 'off',
     'no-undef': 'off',
     'no-unreachable': 'off',
     'no-unsafe-negation': 'off',
     'valid-typeof': 'off',
     'import/named': 'off',
-    'import/no-unresolved': 'off',
 };
 
+/**
+ * @type {import('eslint-define-config').EslintConfig['rules']}
+ */
 const vueDisableRules = {
     'import/first': 'off',
 };
 
+/**
+ * @type {import('eslint-define-config').EslintConfig['rules']}
+ */
 const deprecatedRules = {
     'lines-around-directive': 'off',
     'no-buffer-constructor': 'off',
@@ -55,7 +64,7 @@ const deprecatedRules = {
     'no-path-concat': 'off',
 };
 
-module.exports = {
+module.exports = defineConfig({
     parser: '@babel/eslint-parser',
     parserOptions: {
         ecmaFeatures: {
@@ -73,10 +82,6 @@ module.exports = {
     rules: {
         curly: ['error', 'all'],
         /**
-         * ?.()
-         */
-        'no-unused-expressions': 'off',
-        /**
          * 依赖注入可能没用到 this
          */
         'class-methods-use-this': 'off',
@@ -91,14 +96,6 @@ module.exports = {
          */
         'prefer-template': 'off',
         /**
-         * ng 构造函数经常为空
-         */
-        'no-useless-constructor': 'off',
-        /**
-         * ng 构造函数经常为空
-         */
-        'no-empty-function': 'off',
-        /**
          * 一般不用 require
          */
         'global-require': 'off',
@@ -106,10 +103,6 @@ module.exports = {
          * 嵌套的三元表达式是良好的编程习惯
          */
         'no-nested-ternary': 'off',
-        /**
-         * 重载很常见
-         */
-        'no-dupe-class-members': 'off',
         /**
          * 用于 exhaustiveCheck
          */
@@ -120,7 +113,6 @@ module.exports = {
         'no-extra-boolean-cast': 'off',
         camelcase: 'off',
         'import/no-deprecated': 'off',
-        'import/named': 'off',
         'import/namespace': 'off',
         'import/default': 'off',
         'import/no-named-as-default-member': 'off',
@@ -174,4 +166,4 @@ module.exports = {
         ...vueDisableRules,
         ...deprecatedRules,
     },
-};
+});

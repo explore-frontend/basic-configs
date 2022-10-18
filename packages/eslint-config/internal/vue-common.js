@@ -1,4 +1,7 @@
-module.exports = {
+// @ts-check
+const { defineConfig } = require('eslint-define-config');
+
+module.exports = defineConfig({
     plugins: [
         // https://eslint.vuejs.org/user-guide/#why-doesn-t-it-work-on-vue-file
         // required to lint *.vue files
@@ -29,16 +32,15 @@ module.exports = {
                 selector: 'TSEnumDeclaration[const=true]',
                 message: 'Do not declare const enums, use enums instead.',
             },
+        ],
+        'vue/no-required-prop-with-default': [
+            'error',
             {
-                selector: "CallExpression[callee.name='defineProps']:not([typeParameters])",
-                message: 'defineProps must always be invoked with a type parameter.',
-            },
-            {
-                selector: "CallExpression[callee.name='defineEmits']:not([typeParameters])",
-                message: 'defineEmits must always be invoked with a type parameter.',
+                autofix: false,
             },
         ],
-
+        'vue/define-props-declaration': ['error', 'type-based'],
+        'vue/define-emits-declaration': ['error', 'type-based'],
         'unicorn/filename-case': [
             'error',
             {
@@ -47,4 +49,4 @@ module.exports = {
             },
         ],
     },
-};
+});

@@ -1,4 +1,6 @@
-module.exports = {
+// @ts-check
+const { defineConfig } = require('eslint-define-config');
+module.exports = defineConfig({
     extends: ['plugin:sonar/recommended', 'plugin:sonarjs/recommended'],
     parser: '@typescript-eslint/parser',
     plugins: ['@typescript-eslint'],
@@ -56,11 +58,6 @@ module.exports = {
          */
         '@typescript-eslint/no-unnecessary-condition': [
             'off', // 关闭的原因是，需要考虑 tagged union 扩展的问题
-            {
-                ignoreRhs: false,
-                allowConstantLoopConditions: true,
-                checkArrayPredicates: true,
-            },
         ],
         '@typescript-eslint/no-unnecessary-type-arguments': 'off', // TODO: 研究是否可以开启
         /**
@@ -151,19 +148,17 @@ module.exports = {
         '@typescript-eslint/return-await': 'error',
 
         /**
-         * 严格使用 boolean， 遇到在 `if(x)`, `!x` 或者 `x ? a : b` 等逻辑运算场景，x 非 boolean 的情况，可以选择
-         * * 使用 `x != null`, `x === ''`, `x !== 0` 等方式来显示告知用户需要排除或者选择的 case
-         * * 或者使用 Boolean(x) 来转换成 boolean，以提示用户，这里需要考虑全体 falsy
+         * 尽可能严格使用 boolean 类型
          */
         '@typescript-eslint/strict-boolean-expressions': [
             'error',
             {
-                allowString: false,
-                allowNumber: false,
+                allowString: true,
+                allowNumber: true,
                 allowNullableObject: true,
-                allowNullableBoolean: false,
-                allowNullableString: false,
-                allowNullableNumber: false,
+                allowNullableBoolean: true,
+                allowNullableString: true,
+                allowNullableNumber: true,
                 allowAny: true,
                 allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
             },
@@ -192,7 +187,6 @@ module.exports = {
         'sonar/no-redundant-optional': 'off',
         'sonar/sonar-no-unused-vars': 'off',
         'sonar/destructuring-assignment-syntax': 'off',
-        'sonar/deprecation': 'error',
         /**
          * 太慢了
          */
@@ -206,4 +200,4 @@ module.exports = {
         'sonarjs/no-redundant-jump': 'off',
         'sonarjs/prefer-immediate-return': 'off',
     },
-};
+});

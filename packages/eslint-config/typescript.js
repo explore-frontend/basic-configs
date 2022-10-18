@@ -1,4 +1,6 @@
-module.exports = {
+// @ts-check
+const { defineConfig } = require('eslint-define-config');
+module.exports = defineConfig({
     parser: '@typescript-eslint/parser',
     plugins: ['@typescript-eslint'],
     rules: {
@@ -451,4 +453,4 @@ module.exports = {
             '@typescript-eslint/parser': ['.ts', '.tsx'],
         },
     },
-};
+});

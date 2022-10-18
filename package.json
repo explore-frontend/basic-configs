@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "private": true,
+  "packageManager": "pnpm@7.13.5",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
