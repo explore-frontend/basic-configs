@@ -1,0 +1,14 @@
+{
+    "name": "@kwai-explore/tsconfig",
+    "version": "0.0.1",
+    "main": "tsconfig.json",
+    "license": "UNLICENSED",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kwai-explore/basic-configs",
+        "directory": "packages/tsconfig"
+    },
+    "dependencies": {
+        "@vue/tsconfig": "^0.1.3"
+    }
+}

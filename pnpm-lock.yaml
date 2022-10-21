@@ -8,6 +8,7 @@ importers:
   apps/vite-project:
     specifiers:
       '@kwai-explore/eslint-config': workspace:*
+      '@kwai-explore/tsconfig': workspace:*
       '@vitejs/plugin-vue': ^3.1.2
       prettier: ^2.7.1
       typescript: ^4.8.4
@@ -18,6 +19,7 @@ importers:
       vue: 3.2.41
     devDependencies:
       '@kwai-explore/eslint-config': link:../../packages/eslint-config
+      '@kwai-explore/tsconfig': link:../../packages/tsconfig
       '@vitejs/plugin-vue': 3.1.2_vite@3.1.8+vue@3.2.41
       prettier: 2.7.1
       typescript: 4.8.4
@@ -59,6 +61,12 @@ importers:
       eslint-plugin-vue: 9.6.0_eslint@8.25.0
       eslint-plugin-vue-scoped-css: 2.2.0_2mtc5h3hcvhr3fkd34lpfeqmou
       vue-eslint-parser: 9.1.0_eslint@8.25.0
+
+  packages/tsconfig:
+    specifiers:
+      '@vue/tsconfig': ^0.1.3
+    dependencies:
+      '@vue/tsconfig': 0.1.3
 
 packages:
 
@@ -668,6 +676,15 @@ packages:
 
   /@vue/shared/3.2.41:
     resolution: {integrity: sha512-W9mfWLHmJhkfAmV+7gDjcHeAWALQtgGT3JErxULl0oz6R6+3ug91I7IErs93eCFhPCZPHBs4QJS7YWEV7A3sxw==}
+
+  /@vue/tsconfig/0.1.3:
+    resolution: {integrity: sha512-kQVsh8yyWPvHpb8gIc9l/HIDiiVUy1amynLNpCy8p+FoCiZXCo6fQos5/097MmnNZc9AtseDsCrfkhqCrJ8Olg==}
+    peerDependencies:
+      '@types/node': '*'
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+    dev: false
 
   /acorn-jsx/5.3.2_acorn@8.8.0:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -1743,7 +1760,7 @@ packages:
     dev: false
 
   /fsevents/2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+    resolution: {integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
