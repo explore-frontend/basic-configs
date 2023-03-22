@@ -13,7 +13,7 @@ module.exports = defineConfig({
             parserOptions: {
                 extraFileExtensions: ['.vue'],
                 parser: '@typescript-eslint/parser',
-                ecmaVersion: 2022, // Allows for the parsing of modern ECMAScript features
+                ecmaVersion: 'latest', // Allows for the parsing of modern ECMAScript features
                 sourceType: 'module', // Allows for the use of imports
             },
         },

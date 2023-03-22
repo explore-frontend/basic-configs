@@ -48,7 +48,7 @@ module.exports = defineConfig({
         /**
          * 当其只可能是 boolean 时候，没必要进行 === true
          */
-        '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
+        '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'off', // FIXME: 暂时没法开，因为遇到了 bug
         /**
          * 被下一条规则覆盖了
          */

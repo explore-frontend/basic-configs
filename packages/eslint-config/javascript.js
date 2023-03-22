@@ -2,7 +2,7 @@
 const { defineConfig } = require('eslint-define-config');
 
 /**
- * @type {import('eslint-define-config').EslintConfig['rules']}
+ * @type {import('eslint-define-config').Rules}
  */
 const tsCheckRules = {
     'import/no-webpack-loader-syntax': 'off',
@@ -48,14 +48,14 @@ const tsCheckRules = {
 };
 
 /**
- * @type {import('eslint-define-config').EslintConfig['rules']}
+ * @type {import('eslint-define-config').Rules}
  */
 const vueDisableRules = {
     'import/first': 'off',
 };
 
 /**
- * @type {import('eslint-define-config').EslintConfig['rules']}
+ * @type {import('eslint-define-config').Rules}
  */
 const deprecatedRules = {
     'lines-around-directive': 'off',

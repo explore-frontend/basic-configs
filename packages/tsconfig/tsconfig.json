@@ -15,12 +15,6 @@
         "noImplicitThis": true,
         "strict": true,
 
-        // For `<script setup>`
-        // See <https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#preserve-value-imports>
-        "preserveValueImports": true,
-        // Enforce using `import type` instead of `import` for types
-        "importsNotUsedAsValues": "error",
-
         // A few notes:
         // - Vue 3 supports ES2016+
         // - For Vite, the actual compilation target is determined by the
@@ -36,6 +30,8 @@
 
         // TODO: 上面的应该用 extends，但是因为 typescript-eslint 不支持 pnpm 的符号链接，所以先复制粘贴过来
 
+        // Enforce using `import type` instead of `import` for types
+        "verbatimModuleSyntax": true,
         // 为了能有合法的 .d.ts 检查
         "skipLibCheck": false,
         // 因为 vue 的 .d.ts 包含了 const enum
