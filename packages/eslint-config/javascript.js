@@ -50,13 +50,6 @@ const tsCheckRules = {
 /**
  * @type {import('eslint-define-config').Rules}
  */
-const vueDisableRules = {
-    'import/first': 'off',
-};
-
-/**
- * @type {import('eslint-define-config').Rules}
- */
 const deprecatedRules = {
     'lines-around-directive': 'off',
     'no-buffer-constructor': 'off',
@@ -86,7 +79,7 @@ module.exports = defineConfig({
          */
         'class-methods-use-this': 'off',
         /**
-         * 和 Angular 以及 Vue 的一般编码风格冲突
+         * 和 Angular， Vue 等大家习惯性的编码风格冲突
          */
         'import/prefer-default-export': 'off',
         'no-console': 'off',
@@ -163,7 +156,6 @@ module.exports = defineConfig({
         'consistent-return': 'off',
         'func-names': 'error',
         ...tsCheckRules,
-        ...vueDisableRules,
         ...deprecatedRules,
     },
 });
