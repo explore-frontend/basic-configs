@@ -62,7 +62,7 @@ module.exports = defineConfig({
         '@typescript-eslint/consistent-type-definitions': ['off', 'interface'],
 
         /**
-         * Angular 依赖注入需要 import，不能 type import
+         * TypeScript 5.0 有 verbatimModuleSyntax，所以这里不需要再检查了
          */
         '@typescript-eslint/consistent-type-imports': 'off',
         'default-param-last': 'off',

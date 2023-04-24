@@ -176,7 +176,7 @@ module.exports = defineConfig({
         'sonar/no-useless-intersection': 'off', // FIXME: 存在 bug，临时关闭
         'sonar/max-union-size': 'off',
         /**
-         * Vue script setup 需要
+         * 可以通过 tsconfig 的 noUnusedLocals 来控制
          */
         'sonar/unused-import': 'off',
         'sonar/different-types-comparison': 'off',

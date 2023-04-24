@@ -10,6 +10,10 @@ module.exports = defineConfig({
         'unicorn',
     ],
     rules: {
+        /**
+         * 和 script setup 冲突
+         */
+        'import/first': 'off',
         'vue/component-name-in-template-casing': 'error',
         'vue/require-default-prop': 'off',
         'vue/component-tags-order': [
