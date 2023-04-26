@@ -23,11 +23,6 @@ module.exports = defineConfig({
                     version: 'detect',
                 },
             },
-
-            globals: {
-                React: true,
-                JSX: true,
-            },
         },
     ],
 });
