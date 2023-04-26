@@ -5,10 +5,10 @@ module.exports = defineConfig({
     overrides: [
         {
             files: ['**/*.ts', '**/*.tsx'],
-            extends: ['../javascript', '../typescript-requiring-type-checking', '../typescript', '../react'],
+            extends: ['../javascript', '../typescript', '../typescript-requiring-type-checking', '../react'],
             env: {
                 browser: true,
-                node: true,
+                es2022: true,
             },
             parser: '@typescript-eslint/parser',
             parserOptions: {
