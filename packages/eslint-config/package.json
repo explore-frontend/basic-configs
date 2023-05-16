@@ -31,6 +31,7 @@
         "eslint-import-resolver-typescript": "^3.5.3",
         "eslint-plugin-import": "^2.27.5",
         "eslint-plugin-react-hooks": "^4.3.0",
+        "eslint-plugin-simple-import-sort": "^10.0.0",
         "eslint-plugin-sonar": "^0.10.0",
         "eslint-plugin-sonarjs": "^0.19.0",
         "eslint-plugin-unicorn": "^46.0.0",

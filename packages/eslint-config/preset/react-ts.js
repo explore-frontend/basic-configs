@@ -23,6 +23,11 @@ module.exports = defineConfig({
                     version: 'detect',
                 },
             },
+            plugins: ['simple-import-sort'],
+            rules: {
+                // import 排序
+                'simple-import-sort/imports': 2,
+            },
         },
     ],
 });
