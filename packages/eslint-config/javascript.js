@@ -132,6 +132,11 @@ module.exports = defineConfig({
                     },
                 ],
                 groups: [['external', 'builtin'], 'internal', ['parent', 'sibling', 'index'], 'object'],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: false,
+                },
             },
         ],
         'import/no-duplicates': ['error', { considerQueryString: true }],
