@@ -4,7 +4,7 @@ const { defineConfig } = require('eslint-define-config');
 module.exports = defineConfig({
     overrides: [
         {
-            files: ['**/*.ts', '**/*.tsx'],
+            files: ['**/*.ts', '**/*.tsx', '**/*.mts'],
             extends: ['../javascript', '../typescript', '../typescript-requiring-type-checking', '../react'],
             env: {
                 browser: true,

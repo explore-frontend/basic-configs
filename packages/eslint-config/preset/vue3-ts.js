@@ -4,7 +4,7 @@ const { defineConfig } = require('eslint-define-config');
 module.exports = defineConfig({
     overrides: [
         {
-            files: ['**/*.ts', '**/*.vue'],
+            files: ['**/*.ts', '**/*.mts', '**/*.vue'],
             extends: ['../javascript', '../typescript', '../typescript-requiring-type-checking', '../vue3'],
             env: {
                 browser: true,
