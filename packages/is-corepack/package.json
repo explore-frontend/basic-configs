@@ -1,6 +1,6 @@
 {
   "name": "@kwai-explore/is-corepack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "bin": {
     "is-corepack": "index.js"

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import * as process from 'node:process';
 
 if (!process.env.COREPACK_ROOT) {
