@@ -16,6 +16,19 @@ module.exports = defineConfig({
                 ecmaVersion: 'latest', // Allows for the parsing of modern ECMAScript features
                 sourceType: 'module', // Allows for the use of imports
             },
+            settings: {
+                'import/parsers': {
+                    '@typescript-eslint/parser': ['.ts', '.tsx', '.mts'],
+                    'vue-eslint-parser': ['.vue'],
+                },
+                'import/resolver': {
+                    typescript: {
+                        alwaysTryTypes: true,
+                        // project 的默认值是 ["./tsconfig.json"]
+                        // project: ['./tsconfig.json'],
+                    },
+                },
+            },
         },
     ],
 });

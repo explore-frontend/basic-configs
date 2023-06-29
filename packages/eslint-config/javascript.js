@@ -71,9 +71,8 @@ module.exports = defineConfig({
         // 仅允许 import export 语句出现在模块的顶层
         allowImportExportEverywhere: false,
     },
-    extends: ['eslint-config-airbnb-base', 'prettier'],
+    extends: ['eslint-config-airbnb-base', './internal/prettier'],
     rules: {
-        curly: ['error', 'all'],
         /**
          * 依赖注入可能没用到 this
          */

@@ -22,6 +22,16 @@ module.exports = defineConfig({
                 react: {
                     version: 'detect',
                 },
+                'import/parsers': {
+                    '@typescript-eslint/parser': ['.ts', '.tsx', '.mts'],
+                },
+                'import/resolver': {
+                    typescript: {
+                        alwaysTryTypes: true,
+                        // project 的默认值是 ["./tsconfig.json"]
+                        // project: ['./tsconfig.json'],
+                    },
+                },
             },
         },
     ],

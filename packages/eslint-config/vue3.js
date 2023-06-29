@@ -4,7 +4,7 @@ module.exports = defineConfig({
     // https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
 
     // Rules order is important, please avoid shuffling them
-    extends: ['plugin:vue/vue3-recommended', './internal/vue-common', 'prettier'],
+    extends: ['plugin:vue/vue3-recommended', './internal/vue-common', './internal/prettier'],
 
     // add your custom rules here
     rules: {
