@@ -6,7 +6,7 @@ module.exports = defineConfig({
     rules: {
         /**
          * See https://github.com/prettier/eslint-config-prettier/blob/main/README.md#curly
-         * 
+         *
          */
         curly: ['error', 'all'],
     },

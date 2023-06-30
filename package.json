@@ -1,17 +1,18 @@
 {
-  "name": "basic-configs",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "private": true,
-  "packageManager": "pnpm@8.6.5",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "prettier": "^2.8.6"
-  }
+    "name": "basic-configs",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "private": true,
+    "packageManager": "pnpm@8.6.5",
+    "scripts": {
+        "format-check": "prettier --check .",
+        "format-fix": "prettier --write ."
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "prettier": "^2.8.6"
+    }
 }

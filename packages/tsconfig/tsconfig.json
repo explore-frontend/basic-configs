@@ -50,9 +50,7 @@
         // Explicitly set it to `true` here in case some users want to overwrite the `target`.
         "useDefineForClassFields": true,
 
-
         // TODO: 上面的从 @vue/tsconfig 抄过来的
-
 
         // 为了能有合法的 .d.ts 检查
         "skipLibCheck": false,
