@@ -1,6 +1,6 @@
 {
     "name": "@kwai-explore/eslint-config",
-    "version": "0.3.3",
+    "version": "0.4.0",
     "main": "index.js",
     "license": "MIT",
     "repository": {
@@ -21,9 +21,9 @@
     "dependencies": {
         "@babel/core": "^7.22.5",
         "@babel/eslint-parser": "^7.22.5",
-        "@typescript-eslint/eslint-plugin": "^5.60.1",
-        "@typescript-eslint/parser": "^5.60.1",
-        "eslint": "^8.43.0",
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+        "eslint": "^8.45.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-alloy": "^5.0.0",
         "eslint-config-prettier": "^8.8.0",
@@ -33,9 +33,9 @@
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-sonar": "^0.12.0",
         "eslint-plugin-sonarjs": "^0.19.0",
-        "eslint-plugin-unicorn": "^47.0.0",
+        "eslint-plugin-unicorn": "^48.0.0",
         "eslint-plugin-vue": "^9.15.1",
-        "eslint-plugin-vue-scoped-css": "^2.4.0",
+        "eslint-plugin-vue-scoped-css": "^2.5.0",
         "vue-eslint-parser": "^9.3.1"
     }
 }
