@@ -124,7 +124,8 @@ module.exports = defineConfig({
         '@typescript-eslint/restrict-plus-operands': [
             'error',
             {
-                checkCompoundAssignments: true,
+                // @ts-expect-error https://github.com/Shinigami92/eslint-define-config/pull/211 合入可解
+                skipCompoundAssignments: false,
             },
         ],
         /**

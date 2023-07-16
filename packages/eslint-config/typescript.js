@@ -150,7 +150,6 @@ module.exports = defineConfig({
         '@typescript-eslint/no-confusing-non-null-assertion': 'off',
 
         'no-duplicate-imports': 'off',
-        '@typescript-eslint/no-duplicate-imports': 'error',
 
         /**
          *
@@ -192,10 +191,6 @@ module.exports = defineConfig({
          */
         '@typescript-eslint/no-for-in-array': 'off',
         /**
-         * 需要 4.0 以上，暂时不能打开
-         */
-        '@typescript-eslint/no-implicit-any-catch': 'off',
-        /**
          * 禁止给一个初始化时直接赋值为 number, string 的变量显式的声明类型
          * @reason 可以简化代码
          */
@@ -236,10 +231,6 @@ module.exports = defineConfig({
          * @reason 使用 non-null 断言时就已经清楚了风险
          */
         '@typescript-eslint/no-non-null-assertion': 'off',
-        /**
-         * 禁止给类的构造函数的参数添加修饰符
-         */
-        '@typescript-eslint/no-parameter-properties': 'off',
 
         'no-redeclare': 'off',
         '@typescript-eslint/no-redeclare': 'off',
