@@ -1,0 +1,14 @@
+{
+    "name": "eslint-config-testing-vue2",
+    "description": "",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "vue": "^3.3.4"
+    }
+}

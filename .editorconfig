@@ -10,7 +10,7 @@ indent_size = 4
 indent_style = space
 max_line_length = 120
 
-[*.{js,jsx,mjs,cjs,wxs,sjs,ts,tsx,vue,css}]
+[*.{js,jsx,mjs,mts,cjs,wxs,sjs,ts,tsx,vue,css}]
 quote_type = single
 
 [*.{yml,yaml}]

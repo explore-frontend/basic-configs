@@ -57,6 +57,17 @@ const deprecatedRules = {
     'no-path-concat': 'off',
 };
 
+/**
+ * @type {import('eslint-define-config').Rules}
+ */
+const eslintCommentsRules = {
+    'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
+    'eslint-comments/no-unlimited-disable': 'off',
+    /**
+     * related: https://github.com/eslint/eslint/issues/15466
+     */
+    'eslint-comments/no-unused-disable': 'error',
+};
 module.exports = defineConfig({
     parser: '@babel/eslint-parser',
     parserOptions: {
@@ -71,7 +82,7 @@ module.exports = defineConfig({
         // 仅允许 import export 语句出现在模块的顶层
         allowImportExportEverywhere: false,
     },
-    extends: ['eslint-config-airbnb-base', './internal/prettier'],
+    extends: ['eslint-config-airbnb-base', 'plugin:eslint-comments/recommended', './internal/prettier'],
     rules: {
         /**
          * 依赖注入可能没用到 this
@@ -161,5 +172,6 @@ module.exports = defineConfig({
         'func-names': 'error',
         ...tsCheckRules,
         ...deprecatedRules,
+        ...eslintCommentsRules,
     },
 });

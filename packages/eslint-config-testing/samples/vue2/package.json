@@ -1,0 +1,9 @@
+{
+    "name": "eslint-config-testing-vue3",
+    "description": "",
+    "private": true,
+    "scripts": {},
+    "dependencies": {
+        "vue": "^2.7.14"
+    }
+}
