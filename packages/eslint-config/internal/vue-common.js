@@ -52,5 +52,6 @@ module.exports = defineConfig({
                 ignore: [/.*(?<!\.vue)$/],
             },
         ],
+        'vue/comment-directive': ['error', { reportUnusedDisableDirectives: true }],
     },
 });

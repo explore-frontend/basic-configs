@@ -1,0 +1,9 @@
+{
+    "extends": "@kwai-explore/tsconfig/tsconfig.json",
+    "compilerOptions": {
+        "lib": ["DOM", "DOM.Iterable", "ESNext"]
+    },
+    "vueCompilerOptions": {
+        "target": 3.3
+    }
+}
