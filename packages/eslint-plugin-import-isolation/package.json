@@ -1,0 +1,35 @@
+{
+    "name": "eslint-plugin-import-isolation",
+    "version": "0.0.1",
+    "description": "TODO ESLint plugin for isolating modules from mutual import.",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kwai-explore/basic-configs/",
+        "directory": "packages/eslint-plugin-import-isolation"
+    },
+    "scripts": {
+        "build": "rm -rf dist && tsc",
+        "prepublishOnly": "pnpm build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "lsdsjy <lsdsjy@163.com> (https://github.com/lsdsjy)",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/eslint": "^8.40.2",
+        "@types/node": "^20.4.8",
+        "@typescript-eslint/experimental-utils": "^5.59.9",
+        "eslint": "^8.42.0",
+        "typescript": "^5.1.6"
+    }
+}
