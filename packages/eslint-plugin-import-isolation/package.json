@@ -1,7 +1,7 @@
 {
     "name": "eslint-plugin-import-isolation",
     "version": "0.0.1",
-    "description": "TODO ESLint plugin for isolating modules from mutual import.",
+    "description": "ESLint plugin for restricting imports between specified directories.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "exports": {
@@ -24,7 +24,7 @@
     },
     "keywords": [],
     "author": "lsdsjy <lsdsjy@163.com> (https://github.com/lsdsjy)",
-    "license": "ISC",
+    "license": "MIT",
     "devDependencies": {
         "@types/eslint": "^8.40.2",
         "@types/node": "^20.4.8",
