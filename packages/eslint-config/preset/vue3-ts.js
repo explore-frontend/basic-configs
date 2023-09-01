@@ -2,6 +2,7 @@
 const { defineConfig } = require('eslint-define-config');
 
 module.exports = defineConfig({
+    plugins: ['import-isolation'],
     overrides: [
         {
             files: ['**/*.ts', '**/*.mts', '**/*.vue'],
