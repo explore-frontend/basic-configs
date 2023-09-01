@@ -13,10 +13,11 @@
     },
     "keywords": [],
     "devDependencies": {
-        "@kwai-explore/eslint-config": "workspace:*",
+        "@kwai-explore/eslint-config": "0.5.1",
         "@kwai-explore/tsconfig": "workspace:*",
         "@types/node": "^20.4.2",
         "eslint": "^8.45.0",
+        "eslint-plugin-import-isolation": "workspace:^",
         "ts-node": "^10.9.1",
         "typescript": "^5.1.6"
     }
