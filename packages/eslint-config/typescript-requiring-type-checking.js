@@ -89,7 +89,15 @@ module.exports = defineConfig({
         /**
          * 使用 ?? 替代 ||
          */
-        '@typescript-eslint/prefer-nullish-coalescing': 'error',
+        '@typescript-eslint/prefer-nullish-coalescing': [
+            'error',
+            {
+                ignorePrimitives: {
+                    number: true,
+                    string: true,
+                },
+            },
+        ],
         /**
          * 暂时没法用
          */
@@ -124,7 +132,6 @@ module.exports = defineConfig({
         '@typescript-eslint/restrict-plus-operands': [
             'error',
             {
-                // @ts-expect-error https://github.com/Shinigami92/eslint-define-config/pull/211 合入可解
                 skipCompoundAssignments: false,
             },
         ],
