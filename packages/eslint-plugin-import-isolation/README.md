@@ -53,4 +53,3 @@ rules: {
 - All directories inside one isolation group cannot import from each other.
 - You can use the wildcard `*` to specify multiple directories.
 - Taking the example above, `modules/a/a.js` cannot import from `modules/b/b.js`, and `modules/a/pages/pa.js` cannot import from either `modules/a/pages/pb.js` or `modules/b/pages/pa.js`.
-

@@ -13,7 +13,7 @@ max_line_length = 120
 [*.{js,jsx,mjs,mts,cjs,wxs,sjs,ts,tsx,vue,css}]
 quote_type = single
 
-[*.{yml,yaml}]
+[*.{md,yml,yaml}]
 indent_size = 2
 
 [*.{md,txt}]
