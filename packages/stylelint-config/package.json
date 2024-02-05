@@ -1,0 +1,32 @@
+{
+    "name": "@kwai-explore/stylelint-config",
+    "version": "0.1.0",
+    "description": "",
+    "author": {
+        "name": "ZHAO Jin-Xiang",
+        "email": "xiaoxiangmoe@gmail.com",
+        "url": "https://github.com/xiaoxiangmoe"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kwai-explore/basic-configs",
+        "directory": "packages/stylelint-config"
+    },
+    "keywords": [],
+    "license": "MIT",
+    "dependencies": {
+        "postcss": "^8.4.33",
+        "postcss-html": "^1.6.0",
+        "postcss-scss": "^4.0.9",
+        "stylelint-config-recommended": "^13.0.0",
+        "stylelint-config-recommended-scss": "^13.1.0",
+        "stylelint-config-recommended-vue": "^1.5.0",
+        "stylelint-csstree-validator": "^3.0.0",
+        "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
+        "stylelint-high-performance-animation": "^1.9.0",
+        "stylelint-no-unsupported-browser-features": "7.0.0"
+    },
+    "peerDependencies": {
+        "stylelint": "^15.11.0"
+    }
+}
