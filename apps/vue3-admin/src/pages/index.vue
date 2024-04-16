@@ -3,8 +3,6 @@ import { NInput, NButton, NTabPane, NTabs } from 'naive-ui';
 import { onMounted, ref } from 'vue';
 import { useRouter, RouterLink } from 'vue-router';
 
-import { landPageControllerQueryLandPage } from '@/gen/open-api-docs/Haoda/client/promise-api-axios';
-
 const name = ref('');
 
 const router = useRouter();
@@ -17,9 +15,6 @@ const activeName = ref('first');
 
 onMounted(async () => {
     try {
-        const res = await landPageControllerQueryLandPage({ params: {} });
-        // TODO 验证一下 zod 检查结果
-        console.log(res.data);
     } catch (e) {
         console.error(e);
     }

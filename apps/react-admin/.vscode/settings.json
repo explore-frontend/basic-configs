@@ -1,0 +1,10 @@
+{
+  "editor.codeActionsOnSave": {
+    // 根据个人需要打开保存后自动lint
+    // "source.fixAll.eslint": true
+  },
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "javascript.preferences.importModuleSpecifier": "shortest",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.validate": ["typescript", "typescriptreact", "javascript"]
+}
