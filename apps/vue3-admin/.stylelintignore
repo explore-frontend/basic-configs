@@ -1,0 +1,5 @@
+dist
+dist-*
+gen
+node_modules
+public

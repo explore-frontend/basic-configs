@@ -1,0 +1,17 @@
+{
+    "extends": "@kwai-explore/tsconfig/tsconfig.json",
+    "compilerOptions": {
+        "lib": ["ESNext", "DOM"],
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "types": ["vite/client", "vite-plugin-pages/client", "vite-plugin-vue-layouts/client.d.ts"],
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"],
+    "vueCompilerOptions": {
+        "strictTemplates": true,
+        "target": 3
+    }
+}
