@@ -13,15 +13,5 @@ module.exports = {
             },
         },
     ],
-    rules: {
-        'vue/multi-word-component-names': 'off',
-
-        'unicorn/filename-case': [
-            'error',
-            {
-                case: 'pascalCase',
-                ignore: [/.*(?<!\.vue)$/, 'default.vue'],
-            },
-        ],
-    },
+    rules: {},
 };
