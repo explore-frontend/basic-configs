@@ -7,7 +7,6 @@ module.exports = defineConfig({
         // required to lint *.vue files
         'vue',
         'vue-scoped-css',
-        'unicorn',
     ],
     rules: {
         /**
