@@ -45,13 +45,7 @@ module.exports = defineConfig({
         ],
         'vue/define-props-declaration': ['error', 'type-based'],
         'vue/define-emits-declaration': ['error', 'type-based'],
-        'unicorn/filename-case': [
-            'error',
-            {
-                case: 'pascalCase',
-                ignore: [/.*(?<!\.vue)$/],
-            },
-        ],
         'vue/comment-directive': ['error', { reportUnusedDisableDirectives: true }],
+        'vue/multi-word-component-names': 'off',
     },
 });
