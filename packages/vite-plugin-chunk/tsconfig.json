@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "CommonJS",
+        "lib": ["ES2020", "DOM"], // vite 的类型依赖 DOM 类型声明
+        "types": [],
+        "declaration": true,
+        "strict": true,
+        "outDir": "dist"
+    },
+    "include": ["src/*"]
+}
