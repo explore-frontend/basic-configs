@@ -1,0 +1,35 @@
+{
+    "name": "@kwai-explore/vite-plugin-chunk",
+    "version": "0.0.1",
+    "description": "",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": {
+            "default": "./dist/index.js"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kwai-explore/basic-configs",
+        "directory": "packages/vite-plugin-chunk"
+    },
+    "scripts": {
+        "build": "rm -rf dist && tsc",
+        "prepublishOnly": "pnpm build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "peerDependencies": {
+        "vite": "*"
+    },
+    "devDependencies": {
+        "typescript": "^4.9.5",
+        "vite": "^4.1.4"
+    }
+}
