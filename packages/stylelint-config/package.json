@@ -1,6 +1,6 @@
 {
     "name": "@kwai-explore/stylelint-config",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "",
     "author": {
         "name": "ZHAO Jin-Xiang",
@@ -14,19 +14,20 @@
     },
     "keywords": [],
     "license": "MIT",
+    "type": "module",
     "dependencies": {
-        "postcss": "^8.4.33",
-        "postcss-html": "^1.6.0",
+        "@carlosjeurissen/stylelint-csstree-validator": "^3.1.0",
+        "postcss": "^8.4.38",
+        "postcss-html": "^1.7.0",
         "postcss-scss": "^4.0.9",
-        "stylelint-config-recommended": "^13.0.0",
-        "stylelint-config-recommended-scss": "^13.1.0",
+        "stylelint-config-recommended": "^14.0.0",
+        "stylelint-config-recommended-scss": "^14.0.0",
         "stylelint-config-recommended-vue": "^1.5.0",
-        "stylelint-csstree-validator": "^3.0.0",
         "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
-        "stylelint-high-performance-animation": "^1.9.0",
-        "stylelint-no-unsupported-browser-features": "7.0.0"
+        "stylelint-high-performance-animation": "^1.10.0",
+        "stylelint-no-unsupported-browser-features": "^8.0.1"
     },
     "peerDependencies": {
-        "stylelint": "^15.11.0"
+        "stylelint": "^16.5.0"
     }
 }

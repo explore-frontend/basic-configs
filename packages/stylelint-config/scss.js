@@ -1,4 +1,5 @@
-const vueSpecificRules = require('stylelint-config-recommended-vue/lib/vue-specific-rules.js');
+import vueSpecificRules from 'stylelint-config-recommended-vue/lib/vue-specific-rules.js';
+
 const presets = {
     // 样式，写法，不推荐
     'at-rule-empty-line-before': null,
@@ -90,11 +91,12 @@ const presets = {
     ],
 };
 
-module.exports = {
+export default {
     plugins: [
         'stylelint-high-performance-animation',
         'stylelint-no-unsupported-browser-features',
-        'stylelint-csstree-validator',
+        // 'stylelint-csstree-validator',
+        '@carlosjeurissen/stylelint-csstree-validator',
         'stylelint-declaration-block-no-ignored-properties',
     ],
     extends: ['stylelint-config-recommended-scss'],

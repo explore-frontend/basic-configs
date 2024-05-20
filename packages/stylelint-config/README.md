@@ -15,10 +15,10 @@ npx install-peerdeps --pnpm --dev @kwai-explore/stylelint-config
 
 ## 📖 Usage
 
-Set your `.stylelintrc.cjs` to:
+Set your `.stylelintrc.mjs` to:
 
 ```js
-module.exports = {
+export default {
     overrides: [
         {
             files: ['**/*.(css)'],
@@ -67,6 +67,16 @@ Example **.vscode/settings.json**:
       // ↓ Add "vue" language.
       "vue"
   ]
+```
+
+### npm script
+
+```json
+{
+    "scripts": {
+        "lint:css": "stylelint './**/*.{vue,css,scss}'"
+    }
+}
 ```
 
 ## 🔒 License
