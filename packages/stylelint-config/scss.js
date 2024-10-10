@@ -31,7 +31,7 @@ const presets = {
     'font-family-no-duplicate-names': true, // 检查字体族名称是否重复
     'declaration-block-no-duplicate-properties': true, // 禁止有重复的属性
     'media-feature-name-no-unknown': true,
-    'scss/at-import-partial-extension': 'always', // @import 路径不需要扩展名
+    'scss/load-partial-extension': 'always', // @import 路径需要扩展名
     'media-feature-range-notation': 'prefix', // 媒体查询利用前缀方式m, >=存在浏览器兼容性问题
     'no-duplicate-selectors': true, // 禁止重复的选择器
     'function-name-case': 'lower', // css函数名称, 统一编码风格
