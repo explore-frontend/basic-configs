@@ -12,6 +12,5 @@ module.exports = defineConfig(preset, {
         '*.mjs',
         'mocks',
         '/src/swagger/open-api-docs/**/*.ts',
-
     ],
 });
