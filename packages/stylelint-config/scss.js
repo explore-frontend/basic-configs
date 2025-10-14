@@ -77,7 +77,7 @@ const presets = {
             ignorePartialSupport: true,
         },
     ],
-    'plugin/no-low-performance-animation-properties': true, // 禁止使用低性能动画 和 过渡属性 & 耗时长，新增项目可打开
+    'plugin/no-low-performance-animation-properties': [true, { ignore: 'paint-properties' }], // 禁止使用低性能动画 和 过渡属性 & 耗时长，新增项目可打开
 
     'csstree/validator': {
         syntaxExtensions: ['sass'],
