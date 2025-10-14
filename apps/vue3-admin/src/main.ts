@@ -1,6 +1,8 @@
-import { ViteSSG } from 'vite-ssg';
 import { setupLayouts } from 'virtual:generated-layouts';
+import { ViteSSG } from 'vite-ssg';
+
 import App from './App.vue';
+
 import generatedRoutes from '~pages';
 
 import './styles/main.css';

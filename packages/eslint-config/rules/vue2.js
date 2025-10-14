@@ -1,11 +1,19 @@
 // @ts-check
-const { defineConfig } = require('eslint-define-config');
-module.exports = defineConfig({
-    // https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
+const { defineConfig } = require('eslint/config');
+const vueEslint = require('eslint-plugin-vue')
+const vueScopedCss = require('eslint-plugin-vue-scoped-css')
+const vueCommon = require('./vue-common')
+const prettier = require('./prettier')
 
-    // Rules order is important, please avoid shuffling them
-    extends: ['plugin:vue/recommended', './internal/vue-common', './internal/prettier'],
+const configs = [
+    vueEslint.configs['flat/vue2-recommended'],
+    vueScopedCss.configs['flat/vue2-recommended'],
+    vueCommon,
+    prettier,
+]
 
+// @ts-expect-error scoped css 类型没写对
+module.exports = defineConfig(...configs, {
     // add your custom rules here
     rules: {
         'vue/require-explicit-emits': 'error',
@@ -24,7 +32,7 @@ module.exports = defineConfig({
         'vue/no-deprecated-vue-config-keycodes': 'error',
         'vue/no-lifecycle-after-await': 'error',
         'vue/no-ref-as-operand': 'error',
-        'vue/no-setup-props-destructure': 'error',
+        'vue/no-setup-props-reactivity-loss': 'error',
         'vue/no-watch-after-await': 'error',
         'vue/require-toggle-inside-transition': 'error',
         'vue/return-in-emits-validator': 'error',

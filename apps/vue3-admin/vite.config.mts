@@ -1,11 +1,11 @@
-import { defineConfig } from 'vite';
 import Vue from '@vitejs/plugin-vue';
-import Pages from 'vite-plugin-pages';
-import Layouts from 'vite-plugin-vue-layouts';
-import Inspect from 'vite-plugin-inspect';
+import { presetAttributify, presetWind, transformerDirectives, transformerVariantGroup } from 'unocss';
 import Unocss from 'unocss/vite';
 import { fileURLToPath, URL } from 'url';
-import { presetAttributify, presetWind, transformerDirectives, transformerVariantGroup } from 'unocss';
+import { defineConfig } from 'vite';
+import Inspect from 'vite-plugin-inspect';
+import Pages from 'vite-plugin-pages';
+import Layouts from 'vite-plugin-vue-layouts';
 
 export default defineConfig({
     base: process.env.CDN_BASE,

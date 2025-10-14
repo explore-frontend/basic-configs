@@ -1,8 +1,18 @@
 // @ts-check
-const { defineConfig } = require('eslint-define-config');
-module.exports = defineConfig({
-    parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint'],
+const { defineConfig } = require('eslint/config');
+const tsEslint = require('typescript-eslint')
+
+const configs = [
+    tsEslint.configs.recommendedTypeChecked,
+]
+
+module.exports = defineConfig(...configs, {
+    languageOptions: {
+        parser: tsEslint.parser,
+        parserOptions: {
+            projectService: true
+        },
+    },
     rules: {
         /**
          * 重载的函数必须写在一起
@@ -22,15 +32,12 @@ module.exports = defineConfig({
         /**
          * 禁止使用指定的类型
          */
-        '@typescript-eslint/ban-types': [
-            'error',
-            {
-                extendDefaults: true,
-                types: {
-                    '{}': false,
-                },
-            },
-        ],
+         // 1. Enable the new rules that cover the old "extendDefaults"
+        "@typescript-eslint/no-unsafe-function-type": "error",
+        "@typescript-eslint/no-wrapper-object-types": "error",
+
+        // 2. Disable the rule that bans the "{}" type, which was previously un-banned
+        "@typescript-eslint/no-empty-object-type": "off",
 
         /**
          * @reason 其实没必要用 getter，直接 readonly 就够了
@@ -182,15 +189,6 @@ module.exports = defineConfig({
          */
         '@typescript-eslint/no-extraneous-class': 'off',
         /**
-         * 禁止调用 Promise 时没有处理异常情况
-         */
-        '@typescript-eslint/no-floating-promises': 'off',
-        /**
-         * 禁止对 array 使用 for in 循环
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/no-for-in-array': 'off',
-        /**
          * 禁止给一个初始化时直接赋值为 number, string 的变量显式的声明类型
          * @reason 可以简化代码
          */
@@ -215,11 +213,6 @@ module.exports = defineConfig({
          * 禁止在接口或类中定义自指的冗余 new
          */
         '@typescript-eslint/no-misused-new': 'error',
-        /**
-         * 避免错误的使用 Promise
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/no-misused-promises': 'off',
         /**
          * 禁止使用 namespace 来定义命名空间
          * @reason 使用 es6 引入模块，才是更标准的方式。
@@ -272,24 +265,9 @@ module.exports = defineConfig({
          */
         '@typescript-eslint/no-type-alias': 'off',
         /**
-         * 条件表达式禁止是永远为真（或永远为假）的
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/no-unnecessary-condition': 'off',
-        /**
-         * 在命名空间中，可以直接使用内部变量，不需要添加命名空间前缀
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/no-unnecessary-qualifier': 'off',
-        /**
          * 禁止范型的类型有默认值时，将范型设置为该默认值
          */
         '@typescript-eslint/no-unnecessary-type-arguments': 'error',
-        /**
-         * 禁止无用的类型断言
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/no-unnecessary-type-assertion': 'off',
 
         '@typescript-eslint/no-unnecessary-type-constraint': 'off',
         'no-unused-expressions': 'off',
@@ -334,11 +312,6 @@ module.exports = defineConfig({
          * 因为 vue 的 event 需要，所以关闭
          */
         '@typescript-eslint/prefer-function-type': 'off',
-        /**
-         * 使用 includes 而不是 indexOf
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/prefer-includes': 'off',
         '@typescript-eslint/prefer-literal-enum-member': 'off',
         /**
          * 禁止使用 module 来定义命名空间
@@ -346,29 +319,14 @@ module.exports = defineConfig({
          */
         '@typescript-eslint/prefer-namespace-keyword': 'off',
         /**
-         * 使用 ?? 替代 ||
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/prefer-nullish-coalescing': 'off',
-        /**
          * 使用 optional chaining 替代 &&
          */
         '@typescript-eslint/prefer-optional-chain': 'error',
-        /**
-         * 私有变量如果没有在构造函数外被赋值，则必须设为 readonly
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/prefer-readonly': 'off',
         /**
          * 使用 RegExp#exec 而不是 String#match
          * @reason 统一关闭 requires type information 的规则
          */
         '@typescript-eslint/prefer-regexp-exec': 'off',
-        /**
-         * 使用 String#startsWith 而不是其他方式
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/prefer-string-starts-ends-with': 'off',
         /**
          * @reason ts-expect-error 是好的做法
          */
@@ -383,35 +341,6 @@ module.exports = defineConfig({
          * @reason 统一关闭 requires type information 的规则
          */
         '@typescript-eslint/promise-function-async': 'off',
-        /**
-         * 使用 sort 时必须传入比较函数
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/require-array-sort-compare': 'off',
-        /**
-         * async 函数中必须存在 await 语句
-         */
-        '@typescript-eslint/require-await': 'off',
-        /**
-         * 使用加号时，两者必须同为数字或同为字符串
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/restrict-plus-operands': 'off',
-        /**
-         * 模版字符串中的变量类型必须是字符串
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/restrict-template-expressions': 'off',
-        /**
-         * async 函数在 try catch 中遇到 promise 返回值，必须 await
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/return-await': 'off',
-        /**
-         * 条件判断必须传入布尔值
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/strict-boolean-expressions': 'off',
         /**
          * 禁止使用三斜杠导入文件
          * @reason 三斜杠是已废弃的语法，但在类型声明文件中还是可以使用的
@@ -430,18 +359,222 @@ module.exports = defineConfig({
          */
         '@typescript-eslint/typedef': 'off',
         /**
-         * 方法调用时需要绑定到正确的 this 上
-         * @reason 统一关闭 requires type information 的规则
-         */
-        '@typescript-eslint/unbound-method': 'off',
-        /**
          * 函数重载时，若能通过联合类型将两个函数的类型声明合为一个，则使用联合类型而不是两个函数声明
          */
         '@typescript-eslint/unified-signatures': 'off',
+        '@typescript-eslint/await-thenable': 'error',
+        'dot-notation': 'off',
+        '@typescript-eslint/dot-notation': [
+            'error',
+            {
+                allowPrivateClassPropertyAccess: true,
+                allowProtectedClassPropertyAccess: true,
+                allowIndexSignaturePropertyAccess: true,
+            },
+        ],
+        /**
+         * TODO: 定一个命名要求吧
+         */
+        '@typescript-eslint/naming-convention': 'off',
+        /**
+         * This rule has some overlap with restrict-plus-operands and restrict-template-expressions.
+         */
+        '@typescript-eslint/no-base-to-string': 'off',
+
+        '@typescript-eslint/no-confusing-void-expression': ['error', {}],
+        /**
+         * 禁止对 Promise 不使用 then
+         *
+         * 暂时关闭，因为开启错误就太多了
+         */
+        '@typescript-eslint/no-floating-promises': ['off', { ignoreVoid: true, ignoreIIFE: true }],
+        /**
+         * 禁止对 array 使用 for in 循环
+         */
+        '@typescript-eslint/no-for-in-array': 'error',
+        '@typescript-eslint/no-implied-eval': 'error',
+        /**
+         * 避免错误的使用 Promise
+         */
+        '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
+
+        /**
+         * 禁止 throw 字面量，必须 throw 一个 Error 对象
+         */
+        '@typescript-eslint/only-throw-error': 'error',
+        /**
+         * 当其只可能是 boolean 时候，没必要进行 === true
+         */
+        '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'off', // FIXME: 暂时没法开，因为遇到了 bug
+        /**
+         * 被下一条规则覆盖了
+         */
+        'no-constant-condition': 'off',
+        /**
+         * 条件表达式禁止是永远为真（或永远为假）的
+         */
+        '@typescript-eslint/no-unnecessary-condition': [
+            'off', // 关闭的原因是，需要考虑 tagged union 扩展的问题
+        ],
+        /**
+         * 在命名空间中，可以直接使用内部变量，不需要添加命名空间前缀
+         *
+         * 好像不是很重要
+         */
+        '@typescript-eslint/no-unnecessary-qualifier': 'off',
+
+        /**
+         * 禁止无用的类型断言
+         *
+         * 因为 Vue 的原因暂时关闭
+         */
+        '@typescript-eslint/no-unnecessary-type-assertion': 'off',
+        /**
+         * 如果启用了，那些老代码就都得重写了
+         */
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off', // FIXME: 这条貌似得开启
+
+        /**
+         * 使用 includes 而不是 indexOf
+         */
+        '@typescript-eslint/prefer-includes': 'error',
+
+        /**
+         * 使用 ?? 替代 ||
+         */
+        '@typescript-eslint/prefer-nullish-coalescing': [
+            'error',
+            {
+                ignorePrimitives: {
+                    number: true,
+                    string: true,
+                },
+            },
+        ],
+        /**
+         * 暂时没法用
+         */
+        '@typescript-eslint/prefer-readonly-parameter-types': 'off',
+        /**
+         * 私有变量如果没有在构造函数外被赋值，则必须设为 readonly
+         *
+         * 暂时没那么多精力开启（缺少单测）
+         */
+        '@typescript-eslint/prefer-readonly': 'off',
+        '@typescript-eslint/prefer-reduce-type-parameter': 'off',
+        /**
+         * 使用 String#startsWith 而不是其他方式
+         */
+        '@typescript-eslint/prefer-string-starts-ends-with': 'error',
+        /**
+         * 使用 sort 时必须传入比较函数
+         */
+        '@typescript-eslint/require-array-sort-compare': 'error',
+
+        /**
+         * 使用加号时，两者必须同为数字或同为字符串
+         */
+        '@typescript-eslint/restrict-plus-operands': [
+            'error',
+            {
+                skipCompoundAssignments: false,
+            },
+        ],
+        /**
+         * 模版字符串中的变量类型必须是字符串
+         */
+        '@typescript-eslint/restrict-template-expressions': [
+            'error',
+            {
+                allowNumber: true,
+                allowBoolean: true,
+                allowAny: false,
+                allowNullish: false,
+                allowRegExp: false,
+            },
+        ],
+        'require-await': 'off',
+        '@typescript-eslint/require-await': 'error',
+        /**
+         * async 函数在 try catch 中遇到 promise 返回值，必须 await
+         */
+        '@typescript-eslint/return-await': 'error',
+
+        /**
+         * 尽可能严格使用 boolean 类型
+         */
+        '@typescript-eslint/strict-boolean-expressions': [
+            'error',
+            {
+                allowString: true,
+                allowNumber: true,
+                allowNullableObject: true,
+                allowNullableBoolean: true,
+                allowNullableString: true,
+                allowNullableNumber: true,
+                allowAny: true,
+                allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
+            },
+        ],
+
+        '@typescript-eslint/switch-exhaustiveness-check': 'error',
+        /**
+         * 方法调用时需要绑定到正确的 this 上
+         */
+        '@typescript-eslint/unbound-method': 'error',
+        '@typescript-eslint/no-import-type-side-effects': 'error',
+
+        'sonarjs/function-name': 'off', // React 的函数名是大写开头
+        'sonarjs/deprecation': 'error',
+        'sonarjs/no-dead-store': 'off',
+        'sonarjs/no-useless-intersection': 'off', // FIXME: 存在 bug，临时关闭
+        'sonarjs/max-union-size': 'off',
+        /**
+         * 可以通过 tsconfig 的 noUnusedLocals 来控制
+         */
+        'sonarjs/unused-import': 'off',
+        'sonarjs/different-types-comparison': 'off',
+        'sonarjs/no-unused-function-argument': 'off',
+        /**
+         * 和 tsconfig 的 exactOptionalPropertyTypes 冲突
+         */
+        'sonarjs/no-redundant-optional': 'off',
+        'sonarjs/sonar-no-unused-vars': 'off',
+        'sonarjs/destructuring-assignment-syntax': 'off',
+        /**
+         * 太慢了
+         */
+        'sonarjs/arguments-order': 'off',
+        /**
+         * ts 会查
+         */
+        'sonarjs/non-number-in-arithmetic-expression': 'off',
+        'sonarjs/no-collapsible-if': 'off',
+        'sonarjs/no-identical-functions': 'off',
+        'sonarjs/no-redundant-jump': 'off',
+        'sonarjs/prefer-immediate-return': 'off',
+
+        // 重复字符串检查，其实真没啥用=。=
+        'sonarjs/no-duplicate-string': 'off',
     },
     settings: {
-        'import/parsers': {
-            '@typescript-eslint/parser': ['.ts', '.tsx'],
+        'import/resolver': {
+            typescript: {
+                alwaysTryTypes: true,
+                // project 的默认值是 ["./tsconfig.json"]
+                // project: ['./tsconfig.json'],
+            },
         },
     },
+}, {
+    files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
+    extends: [tsEslint.configs.disableTypeChecked],
+}, {
+    files: ['**/*.cjs'],
+    rules: {
+        '@typescript-eslint/no-require-imports': 'off',
+    }
 });

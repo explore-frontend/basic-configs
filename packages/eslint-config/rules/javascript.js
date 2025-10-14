@@ -1,8 +1,17 @@
 // @ts-check
-const { defineConfig } = require('eslint-define-config');
+const { defineConfig } = require('eslint/config');
+
+const babelParser = require('@babel/eslint-parser')
+
+const eslintAirbnbBase = require('./airbnb');
+const eslintComments = require('@eslint-community/eslint-plugin-eslint-comments/configs');
+const eslintPrettier = require('./prettier');
+const js = require('@eslint/js')
+
+const sonar = require('eslint-plugin-sonarjs')
 
 /**
- * @type {import('eslint-define-config').Rules}
+ * @type {Partial<import('eslint/rules').ESLintRules>}
  */
 const tsCheckRules = {
     'import/no-webpack-loader-syntax': 'off',
@@ -48,7 +57,7 @@ const tsCheckRules = {
 };
 
 /**
- * @type {import('eslint-define-config').Rules}
+ * @type {Partial<import('eslint/rules').ESLintRules>}
  */
 const deprecatedRules = {
     'lines-around-directive': 'off',
@@ -58,31 +67,42 @@ const deprecatedRules = {
 };
 
 /**
- * @type {import('eslint-define-config').Rules}
+ * @type {Partial<import('eslint/rules').ESLintRules>}
  */
 const eslintCommentsRules = {
-    'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
-    'eslint-comments/no-unlimited-disable': 'off',
+    '@eslint-community/eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
+    '@eslint-community/eslint-comments/no-unlimited-disable': 'off',
     /**
      * related: https://github.com/eslint/eslint/issues/15466
      */
-    'eslint-comments/no-unused-disable': 'error',
+    '@eslint-community/eslint-comments/no-unused-disable': 'error',
 };
-module.exports = defineConfig({
-    parser: '@babel/eslint-parser',
-    parserOptions: {
-        ecmaFeatures: {
-            // 不允许 return 语句出现在 global 环境下
-            globalReturn: false,
-            // 开启全局 script 模式
-            impliedStrict: true,
+
+const configs = [
+    js.configs.recommended,
+    eslintAirbnbBase,
+    eslintComments.recommended,
+    eslintPrettier,
+    sonar.configs.recommended
+];
+
+// @ts-expect-error eslint-plugin-comments 类型没写对
+module.exports = defineConfig(...configs, {
+    languageOptions: {
+        parser: babelParser,
+        parserOptions: {
+            ecmaFeatures: {
+                // 不允许 return 语句出现在 global 环境下
+                globalReturn: false,
+                // 开启全局 script 模式
+                impliedStrict: true,
+            },
+            // 即使没有 babelrc 配置文件，也使用 babel-eslint 来解析
+            requireConfigFile: false,
+            // 仅允许 import export 语句出现在模块的顶层
+            allowImportExportEverywhere: false,
         },
-        // 即使没有 babelrc 配置文件，也使用 babel-eslint 来解析
-        requireConfigFile: false,
-        // 仅允许 import export 语句出现在模块的顶层
-        allowImportExportEverywhere: false,
     },
-    extends: ['eslint-config-airbnb-base', 'plugin:eslint-comments/recommended', './internal/prettier'],
     rules: {
         /**
          * 依赖注入可能没用到 this
@@ -103,15 +123,15 @@ module.exports = defineConfig({
          */
         'global-require': 'off',
         /**
-         * 嵌套的三元表达式是良好的编程习惯
+         * 嵌套的三元表达式不是良好的编程习惯
          */
-        'no-nested-ternary': 'off',
+        'no-nested-ternary': 'error',
         /**
          * 用于 exhaustiveCheck
          */
         'no-case-declarations': 'off',
         'no-plusplus': 'off',
-        'no-else-return': 'off',
+        'no-else-return': 'error',
         yoda: 'off',
         'no-extra-boolean-cast': 'off',
         camelcase: 'off',

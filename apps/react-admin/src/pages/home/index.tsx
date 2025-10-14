@@ -1,7 +1,7 @@
+import { Button, Alert } from "antd";
 import { useState } from "react";
 
 import logo from "@/assets/svg/logo.svg";
-import { Button, Alert } from "antd";
 const { ErrorBoundary } = Alert;
 
 const ThrowError: React.FC = () => {

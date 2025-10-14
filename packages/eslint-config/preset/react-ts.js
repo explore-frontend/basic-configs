@@ -1,38 +1,37 @@
 // @ts-check
-const { defineConfig } = require('eslint-define-config');
+const { defineConfig } = require('eslint/config');
+const javascript = require('../rules/javascript')
+const typescript = require('../rules/typescript')
+const react = require('../rules/react');
+const globals = require('globals');
+const tsEslint = require('typescript-eslint');
 
-module.exports = defineConfig({
-    overrides: [
-        {
-            files: ['**/*.ts', '**/*.tsx', '**/*.mts'],
-            extends: ['../javascript', '../typescript', '../typescript-requiring-type-checking', '../react'],
-            env: {
-                browser: true,
-                es2022: true,
-            },
-            parser: '@typescript-eslint/parser',
-            parserOptions: {
-                ecmaVersion: 'latest',
-                sourceType: 'module',
-                ecmaFeatures: {
-                    jsx: true,
-                },
-            },
-            settings: {
-                react: {
-                    version: 'detect',
-                },
-                'import/parsers': {
-                    '@typescript-eslint/parser': ['.ts', '.tsx', '.mts'],
-                },
-                'import/resolver': {
-                    typescript: {
-                        alwaysTryTypes: true,
-                        // project 的默认值是 ["./tsconfig.json"]
-                        // project: ['./tsconfig.json'],
-                    },
-                },
+const configs = [
+    javascript,
+    typescript,
+    react,
+]
+
+module.exports = defineConfig(...configs, {
+    files: ['**/*.ts', '**/*.tsx', '**/*.mts'],
+    languageOptions: {
+        parser: tsEslint.parser,
+        globals: {
+            ...globals.browser,
+            ...globals.es2022,
+        },
+        parserOptions: {
+            ecmaVersion: 'latest',
+            sourceType: 'module',
+            ecmaFeatures: {
+                jsx: true,
             },
         },
-    ],
+    },
+
+    settings: {
+        react: {
+            version: 'detect',
+        },
+    },
 });
