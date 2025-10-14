@@ -1,10 +1,8 @@
-import type { UserConfig } from "vite";
-
-import path from "path";
-
 import reactPlugin from "@vitejs/plugin-react";
-import tsconfigPaths from "vite-tsconfig-paths";
 import reactSwc from "@vitejs/plugin-react-swc";
+import path from "path";
+import type { UserConfig } from "vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 interface PresetOption {
   mode: string;

@@ -1,13 +1,7 @@
 // @ts-check
-const { defineConfig } = require('eslint-define-config');
+const { defineConfig } = require('eslint/config');
 
 module.exports = defineConfig({
-    plugins: [
-        // https://eslint.vuejs.org/user-guide/#why-doesn-t-it-work-on-vue-file
-        // required to lint *.vue files
-        'vue',
-        'vue-scoped-css',
-    ],
     rules: {
         /**
          * 和 script setup 冲突
@@ -15,7 +9,7 @@ module.exports = defineConfig({
         'import/first': 'off',
         'vue/component-name-in-template-casing': 'error',
         'vue/require-default-prop': 'off',
-        'vue/component-tags-order': [
+        'vue/block-order': [
             'error',
             {
                 order: ['script', 'template', 'style'],
@@ -26,7 +20,7 @@ module.exports = defineConfig({
          */
         'vue/no-export-in-script-setup': 'off',
         'vue/no-undef-components': ['error', { ignorePatterns: [] }],
-        'vue-scoped-css/enforce-style-type': ['error', { allows: ['scoped'] }],
+        'vue-scoped-css/enforce-style-type': ['error', { allows: ['scoped', 'module'] }],
         'vue/v-on-event-hyphenation': 'off',
 
         'no-restricted-syntax': [

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
 import { NLayout, NLayoutHeader, NLayoutSider, NLayoutContent } from 'naive-ui';
+import { RouterView } from 'vue-router';
+
 import DefaultHeader from '../components/DefaultHeader.vue';
 import DefaultSidebar from '../components/DefaultSidebar.vue';
 </script>

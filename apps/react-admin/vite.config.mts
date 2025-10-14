@@ -1,9 +1,10 @@
 /// <reference types="vite/client" />
 
-import { preset } from "./vite-config-preset";
 import path from "path";
-import { defineConfig, mergeConfig } from "vite";
 import tailwind from "tailwindcss";
+import { defineConfig, mergeConfig } from "vite";
+
+import { preset } from "./vite-config-preset";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {

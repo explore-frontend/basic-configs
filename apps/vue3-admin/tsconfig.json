@@ -8,7 +8,7 @@
         "types": ["vite/client", "vite-plugin-pages/client", "vite-plugin-vue-layouts/client.d.ts"],
         "skipLibCheck": true
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "vite.config.mts"],
     "exclude": ["node_modules"],
     "vueCompilerOptions": {
         "strictTemplates": true,
