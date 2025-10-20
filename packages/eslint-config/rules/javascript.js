@@ -120,6 +120,8 @@ const sonarjsRules = {
     'sonarjs/no-selector-parameter': 'off',
     'sonarjs/use-type-alias': 'off',
     'sonarjs/function-return-type': 'off',
+    'sonarjs/no-misleading-array-reverse': 'off',
+    'sonarjs/duplicates-in-character-class': 'off',
 }
 
 const configs = [
