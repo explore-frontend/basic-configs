@@ -118,6 +118,8 @@ const sonarjsRules = {
     'sonarjs/no-commented-code': 'off',
     'sonarjs/todo-tag': 'warn',
     'sonarjs/no-selector-parameter': 'off',
+    'sonarjs/use-type-alias': 'off',
+    'sonarjs/function-return-type': 'off',
 }
 
 const configs = [

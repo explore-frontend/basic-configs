@@ -520,7 +520,9 @@ module.exports = defineConfig(...configs, {
             },
         ],
 
-        '@typescript-eslint/switch-exhaustiveness-check': 'error',
+        '@typescript-eslint/switch-exhaustiveness-check': ['error', {
+            considerDefaultExhaustiveForUnions: true,
+        }],
         /**
          * 方法调用时需要绑定到正确的 this 上
          */
@@ -530,6 +532,8 @@ module.exports = defineConfig(...configs, {
         '@typescript-eslint/no-unsafe-enum-comparison': 'off',
         // 和 InstanceOf 的冲突，先 disable掉了
         '@typescript-eslint/no-redundant-type-constituents': 'off',
+        // 里面会无视 skipLib check，去检查 node_modules 的 any 类型，先关闭掉了，用 tsc 暂时来保证
+        '@typescript-eslint/no-unsafe-argument': 'off'
     },
     settings: {
         'import/resolver': {
