@@ -526,39 +526,10 @@ module.exports = defineConfig(...configs, {
          */
         '@typescript-eslint/unbound-method': 'error',
         '@typescript-eslint/no-import-type-side-effects': 'error',
-
-        'sonarjs/function-name': 'off', // React 的函数名是大写开头
-        'sonarjs/deprecation': 'error',
-        'sonarjs/no-dead-store': 'off',
-        'sonarjs/no-useless-intersection': 'off', // FIXME: 存在 bug，临时关闭
-        'sonarjs/max-union-size': 'off',
-        /**
-         * 可以通过 tsconfig 的 noUnusedLocals 来控制
-         */
-        'sonarjs/unused-import': 'off',
-        'sonarjs/different-types-comparison': 'off',
-        'sonarjs/no-unused-function-argument': 'off',
-        /**
-         * 和 tsconfig 的 exactOptionalPropertyTypes 冲突
-         */
-        'sonarjs/no-redundant-optional': 'off',
-        'sonarjs/sonar-no-unused-vars': 'off',
-        'sonarjs/destructuring-assignment-syntax': 'off',
-        /**
-         * 太慢了
-         */
-        'sonarjs/arguments-order': 'off',
-        /**
-         * ts 会查
-         */
-        'sonarjs/non-number-in-arithmetic-expression': 'off',
-        'sonarjs/no-collapsible-if': 'off',
-        'sonarjs/no-identical-functions': 'off',
-        'sonarjs/no-redundant-jump': 'off',
-        'sonarjs/prefer-immediate-return': 'off',
-
-        // 重复字符串检查，其实真没啥用=。=
-        'sonarjs/no-duplicate-string': 'off',
+        // enum 的比较，和 TS 本身的有点相性不合，先 disable掉了
+        '@typescript-eslint/no-unsafe-enum-comparison': 'off',
+        // 和 InstanceOf 的冲突，先 disable掉了
+        '@typescript-eslint/no-redundant-type-constituents': 'off',
     },
     settings: {
         'import/resolver': {

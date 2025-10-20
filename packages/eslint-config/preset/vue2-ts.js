@@ -18,6 +18,7 @@ const configs = [
 
 module.exports = defineConfig(...configs, {
     files: ['**/*.ts', '**/*.mts', '**/*.tsx','**/*.vue'],
+    ignores: ['node_modules'],
     languageOptions: {
         parser: vueEslintParser,
         parserOptions: {

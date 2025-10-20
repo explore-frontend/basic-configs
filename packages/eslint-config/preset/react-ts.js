@@ -14,6 +14,7 @@ const configs = [
 
 module.exports = defineConfig(...configs, {
     files: ['**/*.ts', '**/*.tsx', '**/*.mts'],
+    ignores: ['node_modules'],
     languageOptions: {
         parser: tsEslint.parser,
         globals: {

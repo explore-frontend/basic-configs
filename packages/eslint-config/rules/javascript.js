@@ -78,6 +78,48 @@ const eslintCommentsRules = {
     '@eslint-community/eslint-comments/no-unused-disable': 'error',
 };
 
+/**
+ * @type {Partial<import('eslint/rules').ESLintRules>}
+ */
+const sonarjsRules = {
+    'sonarjs/function-name': 'off', // React 的函数名是大写开头
+    'sonarjs/deprecation': 'warn',
+    'sonarjs/no-dead-store': 'off',
+    'sonarjs/no-useless-intersection': 'off', // FIXME: 存在 bug，临时关闭
+    'sonarjs/max-union-size': 'off',
+    /**
+     * 可以通过 tsconfig 的 noUnusedLocals 来控制
+     */
+    'sonarjs/unused-import': 'off',
+    'sonarjs/different-types-comparison': 'off',
+    'sonarjs/no-unused-function-argument': 'off',
+    /**
+     * 和 tsconfig 的 exactOptionalPropertyTypes 冲突
+     */
+    'sonarjs/no-redundant-optional': 'off',
+    'sonarjs/sonar-no-unused-vars': 'off',
+    'sonarjs/destructuring-assignment-syntax': 'off',
+    /**
+     * 太慢了
+     */
+    'sonarjs/arguments-order': 'off',
+    /**
+     * ts 会查
+     */
+    'sonarjs/non-number-in-arithmetic-expression': 'off',
+    'sonarjs/no-collapsible-if': 'off',
+    'sonarjs/no-identical-functions': 'off',
+    'sonarjs/no-redundant-jump': 'off',
+    'sonarjs/prefer-immediate-return': 'off',
+
+    // 重复字符串检查，其实真没啥用=。=
+    'sonarjs/no-duplicate-string': 'off',
+    // 检测注释Code 的，及其浪费时间=
+    'sonarjs/no-commented-code': 'off',
+    'sonarjs/todo-tag': 'warn',
+    'sonarjs/no-selector-parameter': 'off',
+}
+
 const configs = [
     js.configs.recommended,
     eslintAirbnbBase,
@@ -190,8 +232,10 @@ module.exports = defineConfig(...configs, {
          */
         'consistent-return': 'off',
         'func-names': 'error',
+        'no-param-reassign': ["error", { "props": false }],
         ...tsCheckRules,
         ...deprecatedRules,
         ...eslintCommentsRules,
+        ...sonarjsRules,
     },
 });
